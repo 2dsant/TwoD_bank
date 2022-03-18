@@ -5,7 +5,7 @@ import { styles } from "./styles";
 export default function Dashboard() {
   return (
     <View style={styles.container}>
-      <Text>Dashboard works!!!!</Text>
+      <Text>Dashboard works!!!!!</Text>
     </View>
   )
 }
