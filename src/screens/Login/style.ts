@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center"
   },
-  content: {
+  logo: {
     alignItems: "center",
     justifyContent: "center",
     marginBottom: 50
@@ -19,17 +19,38 @@ export const styles = StyleSheet.create({
     width: 80,
     height: 80
   },
-  title: {
+  message: {
     color: theme.colors.primary,
     marginVertical: 5
   },
-  footer: {
-    position: 'absolute',
+  content: {
     width: '100%',
-    bottom: 0,
+  },
+  footer: {
+    width: '100%',
     justifyContent: "flex-end",
     paddingVertical: 20,
     marginBottom: getBottomSpace(),
-
-  }
+  },
+  modalContainer: {
+    width: '100%',
+    height: '100%',
+    backgroundColor: theme.colors.primary,
+    padding: 40,
+    alignItems: "center",
+    marginTop: '50%',
+    borderRadius: 50
+  },
+  title: {
+    fontFamily: theme.fonts.bold,
+    color: theme.colors.secondary,
+    fontSize: 32,
+    marginBottom: 30
+  },
+  subtitle: {
+    fontFamily: theme.fonts.regular,
+    fontSize: 18,
+    color: theme.colors.secondary,
+    marginBottom: 30
+  },
 })
