@@ -1,12 +1,22 @@
 import React, { useState } from 'react';
 import { View, Text, Image, KeyboardAvoidingView, Pressable, Modal, ScrollView } from 'react-native';
-import { styles } from './style';
+import { styles } from './styles';
 import { BlackButton } from '../../components/BlackButton';
-import { InputText } from '../../components/InputText';
+import { CustomInputText } from '../../components/CustomInputText';
+import { useForm } from 'react-hook-form';
+import { Icon } from 'react-native-elements';
 import LogoPng from '../../assets/logo.png';
+import { theme } from '../../global/styles/theme';
 
 export default function Login() {
   const [modalVisible, setModalVisible] = useState(false);
+  const { control, handleSubmit, formState: { errors } } = useForm();
+  const { control: controlModal, handleSubmit: handleSubmitModal, formState: { errors: errorsModal } } = useForm();
+  console.log(errors);
+
+  const onLoginPressed = (data: {}) => {
+    console.log(data);
+  }
 
   return (
     <View style={styles.container}>
@@ -18,7 +28,6 @@ export default function Login() {
           setModalVisible(!modalVisible);
         }}
       >
-
         <ScrollView>
           <KeyboardAvoidingView
             style={styles.modalContainer}
@@ -26,11 +35,25 @@ export default function Login() {
             <ScrollView style={styles.content}>
               <Text style={styles.title}>Esqueci minha senha</Text>
               <Text style={styles.subtitle}>Informe seu usuário que enviaremos um link para recuperar sua senha em seu email.</Text>
-              <InputText
+              <CustomInputText
+                errors={errorsModal}
+                control={controlModal}
+                name="username"
                 placeholder='usuário'
                 border
+                rules={{
+                  required: 'Campo obrigatório.',
+                  minLength: {
+                    value: 1,
+                    message: 'Usuário deve ter pelo menos 1 caractere'
+                  },
+                  // pattern: {
+                  //   value: /[A-Za-z]{3}/,
+                  //   message: 'É permitido apenas letras e números.'
+                  // }
+                }}
               />
-              <BlackButton title='Confirmar' />
+              <BlackButton title='Confirmar' onPress={handleSubmitModal(onLoginPressed)} />
             </ScrollView>
           </KeyboardAvoidingView>
         </ScrollView>
@@ -49,17 +72,43 @@ export default function Login() {
       </View>
 
       <View style={styles.content}>
-        <InputText
+        <CustomInputText
+          errors={errors}
+          control={control}
+          name="username"
           placeholder='usuário'
+          rules={{
+            required: 'Campo obrigatório.',
+            minLength: {
+              value: 1,
+              message: 'Usuário deve ter pelo menos 1 caractere'
+            },
+            // pattern: {
+            //   value: /[A-Za-z]{3}/,
+            //   message: 'É permitido apenas letras e números.'
+            // }
+          }}
         />
-        <InputText
+        <CustomInputText
+          errors={errors}
+          control={control}
+          name="password"
           placeholder='senha'
-          keyboardType="visible-password"
+          keyboardType='numeric'
+          icon
+          rules={{
+            required: 'Campo obrigatório.',
+            minLength: {
+              value: 7,
+              message: 'Senha deve ter pelo menos 7 caracteres.'
+            },
+          }}
         />
+
       </View>
 
       <View style={styles.footer}>
-        <BlackButton title='Entrar' />
+        <BlackButton onPress={handleSubmit(onLoginPressed)} title='Entrar' />
         <Pressable
           onPress={() => setModalVisible(true)}>
           <Text>
