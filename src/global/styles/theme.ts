@@ -10,8 +10,11 @@ export const theme = {
   },
 
   fonts: {
-    regular: 'Inter-Regular.ttf',
-    bold: 'Inter-Bold.ttf',
-    semiBold: 'Inter-SemiBold.ttf'
+    interRegular: 'Inter-Regular',
+    interBold: 'Inter-Bold',
+    interSemiBold: 'Inter-SemiBold',
+    quickSandBold: 'Quicksand-Bold',
+    quickSandMedium: 'Quicksand-Medium',
+    quickSandRegular: 'Quicksand-Regular'
   }
 };

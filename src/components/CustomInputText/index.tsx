@@ -24,39 +24,41 @@ export function CustomInputText({ control, name, rules = {}, placeholder, border
       name={name}
       rules={rules}
       render={({ field: { value, onChange, onBlur }, fieldState: { error } }: any) => (
-        <View style={styles.container}>
-          <TextInput value={value}
-            onChangeText={onChange}
-            onBlur={onBlur}
-            placeholder={placeholder}
-            secureTextEntry={hidePass}
-            {...rest}
-            style={[styles.input, border ? { borderWidth: 1, borderRadius: 8 } : null, error ? styles.error : null]}
-          />
-          {
-            icon &&
-            <View style={styles.icon}>
-              {
-                hidePass ?
-                  <Icon
-                    name='eye'
-                    type='ionicon'
-                    color={theme.colors.secondary}
-                    tvParallaxProperties={undefined}
-                    onPress={() => setHidePass(!hidePass)}
-                  />
-                  :
-                  <Icon
-                    name='eye-off'
-                    type='ionicon'
-                    color={theme.colors.secondary}
-                    tvParallaxProperties={undefined}
-                    onPress={() => setHidePass(!hidePass)}
-                  />
-              }
-            </View>
-          }
+        <View style={styles.marginB}>
+          <View style={[styles.container, border ? { borderWidth: 1, borderRadius: 8 } : null, error ? styles.error : null]}>
+            <TextInput value={value}
+              onChangeText={onChange}
+              onBlur={onBlur}
+              placeholder={placeholder}
+              secureTextEntry={hidePass}
+              {...rest}
+              style={styles.input}
+            />
+            {
+              icon &&
+              <View style={styles.icon}>
+                {
+                  hidePass ?
+                    <Icon
+                      name='eye'
+                      type='ionicon'
+                      color={theme.colors.secondary}
+                      tvParallaxProperties={undefined}
+                      onPress={() => setHidePass(!hidePass)}
+                    />
+                    :
+                    <Icon
+                      name='eye-off'
+                      type='ionicon'
+                      color={theme.colors.secondary}
+                      tvParallaxProperties={undefined}
+                      onPress={() => setHidePass(!hidePass)}
+                    />
+                }
+              </View>
+            }
 
+          </View>
           {error && <Text style={styles.textError}>{error.message}</Text>}
         </View>
       )}

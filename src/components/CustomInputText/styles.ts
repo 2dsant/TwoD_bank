@@ -4,7 +4,6 @@ import { theme } from "../../global/styles/theme";
 export const styles = StyleSheet.create({
   container: {
     width: '100%',
-    marginBottom: 20,
     flexDirection: "row",
     justifyContent: "flex-start",
     alignItems: "center",
@@ -27,5 +26,8 @@ export const styles = StyleSheet.create({
   },
   textError: {
     color: theme.colors.quartiary
+  },
+  marginB: {
+    marginBottom: 20,
   }
 })

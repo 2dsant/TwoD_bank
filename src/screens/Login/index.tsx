@@ -4,18 +4,17 @@ import { styles } from './styles';
 import { BlackButton } from '../../components/BlackButton';
 import { CustomInputText } from '../../components/CustomInputText';
 import { useForm } from 'react-hook-form';
-import { Icon } from 'react-native-elements';
 import LogoPng from '../../assets/logo.png';
-import { theme } from '../../global/styles/theme';
+import { useNavigation } from '@react-navigation/native';
 
 export default function Login() {
   const [modalVisible, setModalVisible] = useState(false);
   const { control, handleSubmit, formState: { errors } } = useForm();
   const { control: controlModal, handleSubmit: handleSubmitModal, formState: { errors: errorsModal } } = useForm();
-  console.log(errors);
+  const navigation = useNavigation<any>();
 
-  const onLoginPressed = (data: {}) => {
-    console.log(data);
+  const onLoginPressed = () => {
+    navigation.navigate('Dashboard');
   }
 
   return (

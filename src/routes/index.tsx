@@ -17,7 +17,7 @@ const Routes = () => {
   return (
     <Background>
       <NavigationContainer theme={MyTheme}>
-        <AuthRoutes />
+        <AppRoutes />
       </NavigationContainer>
     </Background>
   )
