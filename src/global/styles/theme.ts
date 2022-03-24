@@ -6,7 +6,9 @@ export const theme = {
     primary: '#FAFAFA',
     secondary: '#3F3F3F',
     tertiary: '#FFCC01',
-    quartiary: '#FF6347'
+    quaternary: '#FF6347',
+    quinary: '#F6F6F6',
+    senary: '#EAEAEA',
   },
 
   fonts: {

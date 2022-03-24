@@ -1,7 +1,7 @@
 import React from "react";
 import { ScrollView, Button } from "react-native";
 import { styles } from './styles';
-import { options } from "../../utils/categories";
+import { options } from "../../utils/options";
 import { MenuOption } from "../MenuOption";
 
 type Props = {

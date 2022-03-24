@@ -42,13 +42,13 @@ export const styles = StyleSheet.create({
     borderRadius: 50
   },
   title: {
-    fontFamily: theme.fonts.bold,
+    fontFamily: theme.fonts.interBold,
     color: theme.colors.secondary,
     fontSize: 32,
     marginBottom: 30
   },
   subtitle: {
-    fontFamily: theme.fonts.regular,
+    fontFamily: theme.fonts.interRegular,
     fontSize: 18,
     color: theme.colors.secondary,
     marginBottom: 30
