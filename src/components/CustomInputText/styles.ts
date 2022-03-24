@@ -22,10 +22,10 @@ export const styles = StyleSheet.create({
   },
   error: {
     borderWidth: 1,
-    borderColor: theme.colors.quartiary,
+    borderColor: theme.colors.quaternary,
   },
   textError: {
-    color: theme.colors.quartiary
+    color: theme.colors.quaternary
   },
   marginB: {
     marginBottom: 20,

@@ -12,6 +12,7 @@ export function MenuOption({ title, icon: Icon, ...rest }: Props) {
     <TouchableOpacity
       {...rest}
       style={styles.container}
+      activeOpacity={0.7}
     >
       <Image source={Icon} width={30} height={30} />
       <Text style={styles.title}>{title}</Text>

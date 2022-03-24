@@ -2,10 +2,6 @@ import { StyleSheet } from "react-native";
 import { theme } from "../../global/styles/theme";
 
 export const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-
   //Header
   header: {
     paddingHorizontal: 33,
@@ -36,9 +32,18 @@ export const styles = StyleSheet.create({
   content: {
     width: '100%',
     backgroundColor: theme.colors.primary,
-    height: '100%',
     paddingHorizontal: 33,
-    paddingTop: 20
+    paddingTop: 20,
+    paddingBottom: 20,
+  },
+  containerAmount: {
+    width: '70%',
+    height: 30
+  },
+  blackout: {
+    width: '100%',
+    height: 18,
+    backgroundColor: theme.colors.senary
   },
   titleAccount: {
     fontFamily: theme.fonts.interBold,
@@ -49,5 +54,11 @@ export const styles = StyleSheet.create({
     fontFamily: theme.fonts.interSemiBold,
     fontSize: 18,
     color: theme.colors.secondary
+  },
+  list: {
+    marginBottom: 30
+  },
+  button: {
+    marginVertical: 40
   }
 })
