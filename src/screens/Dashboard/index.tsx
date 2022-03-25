@@ -32,7 +32,7 @@ export default function Dashboard() {
               size={31}
               color={theme.colors.primary}
               tvParallaxProperties={undefined}
-              onPress={() => console.warn('clicou profile')}
+              onPress={() => navigation.navigate('Profile')}
             />
             {
               showAmount ?
