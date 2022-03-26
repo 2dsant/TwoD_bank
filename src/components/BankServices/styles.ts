@@ -12,17 +12,26 @@ export const styles = StyleSheet.create({
     backgroundColor: theme.colors.quinary,
     marginBottom: 5
   },
+  containerTitle: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 10
+  },
   title: {
     fontFamily: theme.fonts.interSemiBold,
     color: theme.colors.secondary,
     fontSize: 20,
-    marginTop: 10
-
   },
   subtitle: {
     fontFamily: theme.fonts.interRegular,
     color: theme.colors.secondary,
     fontSize: 14,
     marginBottom: 10
+  },
+  icon: {
+    maxWidth: 25,
+    maxHeight: 25,
+    marginRight: 10
   }
 })

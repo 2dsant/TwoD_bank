@@ -10,6 +10,7 @@ import { servicesList } from "../../utils/servicesList";
 import { ListDivider } from "../../components/ListDivider";
 import { BankServices } from "../../components/BankServices";
 import { Background } from "../../components/Background";
+import CardPng from '../../assets/card.png';
 
 export default function Dashboard() {
   const navigation = useNavigation<any>();
@@ -77,7 +78,7 @@ export default function Dashboard() {
           />
 
           <View style={styles.button}>
-            <YellowButton title="Meu cartão" />
+            <YellowButton title="Meu cartão" icon={CardPng} />
           </View>
 
           {
