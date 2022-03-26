@@ -9,6 +9,7 @@ export const theme = {
     quaternary: '#FF6347',
     quinary: '#F6F6F6',
     senary: '#EAEAEA',
+    septenary: '#D1D1D1',
   },
 
   fonts: {
