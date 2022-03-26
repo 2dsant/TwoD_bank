@@ -34,7 +34,6 @@ export const styles = StyleSheet.create({
     backgroundColor: theme.colors.primary,
     paddingHorizontal: 33,
     paddingTop: 20,
-    paddingBottom: 20,
   },
   containerAmount: {
     width: '70%',
