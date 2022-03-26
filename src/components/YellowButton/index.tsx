@@ -4,7 +4,7 @@ import { styles } from "./styles";
 
 type Props = TouchableOpacityProps & {
   title: string,
-  icon: any
+  icon?: any
 }
 
 export function YellowButton({ title, icon, ...rest }: Props) {
