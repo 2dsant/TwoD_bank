@@ -1,5 +1,5 @@
 import React from "react";
-import { ScrollView, Button } from "react-native";
+import { ScrollView } from "react-native";
 import { styles } from './styles';
 import { options } from "../../utils/options";
 import { MenuOption } from "../MenuOption";
@@ -21,6 +21,7 @@ export function ScrollMenu({ setOption, }: Props) {
             key={option.id}
             title={option.title}
             icon={option.icon}
+            route={option.route}
             onPress={() => setOption(option.id)}
           />
         ))
