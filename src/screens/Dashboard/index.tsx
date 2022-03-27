@@ -78,7 +78,7 @@ export default function Dashboard() {
           />
 
           <View style={styles.button}>
-            <YellowButton title="Meu cartão" icon={CardPng} />
+            <YellowButton title="Meu cartão" icon={CardPng} onPress={() => navigation.navigate('ErrorView')} />
           </View>
 
           {

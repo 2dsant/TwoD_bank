@@ -1,7 +1,6 @@
 import React from "react";
 import { Image, Text, TouchableOpacity, TouchableOpacityProps, View } from 'react-native'
 import { styles } from "./styles";
-import { servicesList } from "../../utils/servicesList";
 import { useNavigation } from "@react-navigation/native";
 
 type ServicesProps = TouchableOpacityProps & {

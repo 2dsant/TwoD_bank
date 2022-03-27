@@ -8,12 +8,12 @@ import NotificacaoPng from '../assets/notificacao.png';
 import SegurancaPng from '../assets/seguranca.png';
 
 export const dataProfileServices = [
-  { id: '1', title: 'Me ajuda', icon: MeAjudaPng },
-  { id: '2', title: 'Meus dados', icon: MeusDadosPng },
-  { id: '3', title: 'Configurar app', icon: ConfigurarAppPng },
-  { id: '4', title: 'Configurar chaves pix', icon: PixPng },
-  { id: '5', title: 'Pedir conta PJ', icon: MudarContaPJPng },
-  { id: '6', title: 'Informe Rendimentos', icon: InformeRendimentosPng },
-  { id: '7', title: 'Notificações', icon: NotificacaoPng },
-  { id: '8', title: 'Segurança', icon: SegurancaPng },
+  { id: '1', title: 'Me ajuda', icon: MeAjudaPng, route: 'ErrorView' },
+  { id: '2', title: 'Meus dados', icon: MeusDadosPng, route: 'ErrorView' },
+  { id: '3', title: 'Configurar app', icon: ConfigurarAppPng, route: 'ErrorView' },
+  { id: '4', title: 'Configurar chaves pix', icon: PixPng, route: 'ErrorView' },
+  { id: '5', title: 'Pedir conta PJ', icon: MudarContaPJPng, route: 'ErrorView' },
+  { id: '6', title: 'Informe Rendimentos', icon: InformeRendimentosPng, route: 'ErrorView' },
+  { id: '7', title: 'Notificações', icon: NotificacaoPng, route: 'ErrorView' },
+  { id: '8', title: 'Segurança', icon: SegurancaPng, route: 'ErrorView' },
 ]
