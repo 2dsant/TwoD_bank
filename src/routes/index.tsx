@@ -3,6 +3,7 @@ import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { Background } from "../components/Background";
 import AppRoutes from "./app.routes";
 import AuthRoutes from "./auth.routes";
+import { connect } from "react-redux";
 
 const MyTheme = {
   ...DefaultTheme,
@@ -12,15 +13,22 @@ const MyTheme = {
   },
 };
 
-const Routes = () => {
-
+const Routes = ({ user }: any) => {
   return (
     <Background>
-      <NavigationContainer theme={MyTheme}>
-        <AppRoutes />
-      </NavigationContainer>
+      {
+        <NavigationContainer theme={MyTheme}>
+          {
+            !user?.name ? <AuthRoutes /> : <AppRoutes />
+          }
+        </NavigationContainer>
+      }
     </Background>
   )
 }
 
-export default Routes;
+const mapStateToProps = (state: any) => ({
+  user: state.loginReducer.user
+});
+
+export default connect(mapStateToProps)(Routes);

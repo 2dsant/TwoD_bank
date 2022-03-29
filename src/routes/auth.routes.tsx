@@ -13,7 +13,7 @@ const AuthRoutes = () => (
       headerShown: false,
     }}
   >
-    <AuthStack.Screen name="Signin" component={SignIn} />
+    <AuthStack.Screen name="SignIn" component={SignIn} />
     <AuthStack.Screen name="Login" component={Login} />
     <AuthStack.Screen name="ErrorView" component={ErrorView} />
   </AuthStack.Navigator>
