@@ -1,23 +1,45 @@
 import React, { useState } from 'react';
-import { View, Text, Image, KeyboardAvoidingView, Pressable, Modal, ScrollView } from 'react-native';
+import { View, Text, Image, KeyboardAvoidingView, Pressable, Modal, ScrollView, Alert, ToastAndroid } from 'react-native';
 import { styles } from './styles';
 import { BlackButton } from '../../components/BlackButton';
 import { CustomInputText } from '../../components/CustomInputText';
 import { useForm } from 'react-hook-form';
 import LogoPng from '../../assets/logo.png';
-import { useNavigation } from '@react-navigation/native';
+import { useDispatch, useSelector } from "react-redux";
+import { hideLoading, showLoading } from '../../redux/actions/AppActions';
+import { login } from '../../redux/actions/LoginActions';
+import { RootState } from '../../redux/reducers/RootReducer';
+import { Load } from '../../components/Load';
 
 export default function Login() {
   const [modalVisible, setModalVisible] = useState(false);
   const { control, handleSubmit, formState: { errors } } = useForm();
   const { control: controlModal, handleSubmit: handleSubmitModal, formState: { errors: errorsModal } } = useForm();
-  const navigation = useNavigation<any>();
+  const dispatch = useDispatch();
+  const { loading } = useSelector((state: RootState) => state.appReducer);
 
-  const onLoginPressed = () => {
-    navigation.navigate('Dashboard');
+  const onLoginPressed = (value: any) => {
+    dispatch(showLoading())
+
+    setTimeout(() => {
+      const user = dispatch(login(value.username, value.password));
+      if (!user)
+        Alert.alert('Verique os dados de login.')
+      dispatch(hideLoading())
+    }, 2000);
+  }
+
+  const onSendEmailPress = () => {
+    ToastAndroid.show("Email enviado. Confira sua caixa de entrada!", ToastAndroid.SHORT);
+    setModalVisible(false);
+  }
+
+  if (loading) {
+    return <Load />
   }
 
   return (
+
     <View style={styles.container}>
       <Modal
         animationType="slide"
@@ -52,7 +74,7 @@ export default function Login() {
                   // }
                 }}
               />
-              <BlackButton title='Confirmar' onPress={handleSubmitModal(onLoginPressed)} />
+              <BlackButton title='Confirmar' onPress={handleSubmitModal(onSendEmailPress)} />
             </ScrollView>
           </KeyboardAvoidingView>
         </ScrollView>
@@ -103,7 +125,6 @@ export default function Login() {
             },
           }}
         />
-
       </View>
 
       <View style={styles.footer}>

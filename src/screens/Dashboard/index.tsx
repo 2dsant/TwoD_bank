@@ -11,16 +11,18 @@ import { ListDivider } from "../../components/ListDivider";
 import { BankServices } from "../../components/BankServices";
 import { Background } from "../../components/Background";
 import CardPng from '../../assets/card.png';
+import { useSelector } from "react-redux";
+import { RootState } from "../../redux/reducers/RootReducer";
 
 export default function Dashboard() {
   const navigation = useNavigation<any>();
   const [option, setOption] = useState('');
   const [showAmount, setShowAmount] = useState(true);
+  const { user } = useSelector((state: RootState) => state.loginReducer);
 
   function handleOptionSelect(optionId: string) {
     optionId === option ? setOption('') : setOption(optionId);
   }
-
 
   return (
     <Background>
@@ -55,8 +57,8 @@ export default function Dashboard() {
             }
           </View>
           <View style={styles.headerMessage}>
-            <Text style={styles.title}>Olá,</Text>
-            <Text style={styles.name}> David</Text>
+            <Text style={styles.title}>Olá, </Text>
+            <Text style={styles.name}>{user.name}</Text>
           </View>
         </View>
 
@@ -68,7 +70,7 @@ export default function Dashboard() {
                 showAmount ?
                   <View style={styles.blackout}></View>
                   :
-                  <Text style={styles.amount}>R$2.000,00</Text>
+                  <Text style={styles.amount}>R$ {user.account.amount}.00</Text>
               }
             </View>
           </View>

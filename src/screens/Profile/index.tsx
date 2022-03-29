@@ -6,8 +6,12 @@ import { theme } from "../../global/styles/theme";
 import { dataProfileServices } from "../../utils/dataProfileServices";
 import { ListDivider } from "../../components/ListDivider";
 import { ProfileServices } from "../../components/ProfileServices";
+import { useSelector } from "react-redux";
+import { RootState } from "../../redux/reducers/RootReducer";
 
 export default function Profile() {
+  const { user } = useSelector((state: RootState) => state.loginReducer);
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -19,7 +23,7 @@ export default function Profile() {
             color={theme.colors.primary}
             tvParallaxProperties={undefined}
           />
-          <Text style={styles.name}> David</Text>
+          <Text style={styles.name}> {user.name}</Text>
         </View>
 
         <View style={styles.accountDetails}>
