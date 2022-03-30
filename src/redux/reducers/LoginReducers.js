@@ -15,5 +15,13 @@ export const loginReducer = (state = INITIAL_STATE, action) => {
     }
   }
 
+  if (action.type === Types.LOGOUT) {
+    return {
+      ...state,
+      user: action.user,
+      userSaved: false,
+    }
+  }
+
   return state;
 }
