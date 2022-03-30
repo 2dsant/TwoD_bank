@@ -7,3 +7,10 @@ export const login = (username, password) => {
     user: users.find(item => item.email === username && item.password === password)
   }
 }
+
+export const logout = () => {
+  return {
+    type: Types.LOGOUT,
+    user: {}
+  }
+}

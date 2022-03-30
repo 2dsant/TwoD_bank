@@ -6,7 +6,10 @@ export const users = [
     account: {
       amount: 2000,
     },
-    cpf: '00000000000'
+    cpf: '00000000000',
+    birthday: '01/01/2000',
+    telephone: '41988888888',
+    description: 'Buscando qualidade na minha vida financeira.'
   },
   {
     name: 'João Souza',
@@ -15,7 +18,10 @@ export const users = [
     account: {
       amount: 1000
     },
-    cpf: '11111111111'
+    cpf: '11111111111',
+    birthday: '02/02/1998',
+    telephone: '41999999999',
+    description: 'Busco melhores os investimentos.'
   }
 ]
 
