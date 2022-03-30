@@ -7,8 +7,10 @@ import Profile from "../screens/Profile";
 import UserData from "../screens/UserData";
 
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createDrawerNavigator } from "@react-navigation/drawer";
 
 const AppStack = createNativeStackNavigator();
+const Drawer = createDrawerNavigator();
 
 const AppRoutes = () => (
   <AppStack.Navigator
@@ -16,6 +18,10 @@ const AppRoutes = () => (
       headerShown: false,
     }}
   >
+    <Drawer.Navigator>
+      <Drawer.Screen name="Profile" component={Profile} />
+    </Drawer.Navigator>
+
     <AppStack.Screen name="Dashboard" component={Dashboard} />
     <AppStack.Screen name="Profile" component={Profile} />
     <AppStack.Screen name="UserData" component={UserData} />
