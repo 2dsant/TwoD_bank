@@ -1,17 +1,25 @@
 import { StyleSheet } from "react-native";
+import { blue } from "react-native-reanimated/src/reanimated2/Colors";
 import { theme } from "../../global/styles/theme";
 
 export const styles = StyleSheet.create({
   //Header
   header: {
     paddingHorizontal: 33,
-    paddingTop: 53
+    paddingTop: 20
   },
   headerIcons: {
+    width: '100%',
+    justifyContent: "center",
+    alignItems: "flex-start",
+  },
+  accountIcons: {
+    width: '100%',
+    marginTop: 20,
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "flex-start",
-    marginBottom: 27
+    marginBottom: 27,
   },
   headerMessage: {
     flexDirection: "row",

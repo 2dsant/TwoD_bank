@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ScrollView, SafeAreaView, View, Text, Button, FlatList } from "react-native";
+import { ScrollView, View, Text } from "react-native";
 import { styles } from "./styles";
 import { useNavigation } from "@react-navigation/native";
 import { Icon } from "react-native-elements";
@@ -30,31 +30,41 @@ export default function Dashboard() {
         <View style={styles.header}>
           <View style={styles.headerIcons}>
             <Icon
-              name='person-circle-outline'
+              name='menu-outline'
               type='ionicon'
               size={31}
               color={theme.colors.primary}
               tvParallaxProperties={undefined}
-              onPress={() => navigation.navigate('Profile')}
+              onPress={() => navigation.openDrawer()}
             />
-            {
-              showAmount ?
-                <Icon
-                  name='eye-off'
-                  type='ionicon'
-                  color={theme.colors.primary}
-                  tvParallaxProperties={undefined}
-                  onPress={() => setShowAmount(!showAmount)}
-                />
-                :
-                <Icon
-                  name='eye'
-                  type='ionicon'
-                  color={theme.colors.primary}
-                  tvParallaxProperties={undefined}
-                  onPress={() => setShowAmount(!showAmount)}
-                />
-            }
+            <View style={styles.accountIcons}>
+              <Icon
+                name='person-circle-outline'
+                type='ionicon'
+                size={31}
+                color={theme.colors.primary}
+                tvParallaxProperties={undefined}
+                onPress={() => navigation.navigate('ErrorView')}
+              />
+              {
+                showAmount ?
+                  <Icon
+                    name='eye-off'
+                    type='ionicon'
+                    color={theme.colors.primary}
+                    tvParallaxProperties={undefined}
+                    onPress={() => setShowAmount(!showAmount)}
+                  />
+                  :
+                  <Icon
+                    name='eye'
+                    type='ionicon'
+                    color={theme.colors.primary}
+                    tvParallaxProperties={undefined}
+                    onPress={() => setShowAmount(!showAmount)}
+                  />
+              }
+            </View>
           </View>
           <View style={styles.headerMessage}>
             <Text style={styles.title}>Olá, </Text>
@@ -80,7 +90,7 @@ export default function Dashboard() {
           />
 
           <View style={styles.button}>
-            <YellowButton title="Meu cartão" icon={CardPng} onPress={() => navigation.navigate('ErrorView')} />
+            <YellowButton title="Meu cartão" icon={CardPng} onPress={() => navigation.openDrawer()} />
           </View>
 
           {

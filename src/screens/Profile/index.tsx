@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/reducers/RootReducer";
 import { useNavigation } from "@react-navigation/native";
 import { logout } from '../../redux/actions/LoginActions';
+import { Background } from "../../components/Background";
 
 export default function Profile() {
   const navigation = useNavigation<any>();
@@ -26,7 +27,7 @@ export default function Profile() {
   }
 
   return (
-    <>
+    <Background>
       <View style={styles.container}>
         <Modal
           animationType="slide"
@@ -84,6 +85,6 @@ export default function Profile() {
           </View>
         </ScrollView>
       </View>
-    </>
+    </Background>
   )
 }

@@ -8,9 +8,21 @@ import UserData from "../screens/UserData";
 
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createDrawerNavigator } from "@react-navigation/drawer";
+import { theme } from "../global/styles/theme";
 
 const AppStack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
+
+const DrawerHome = () => (
+  <Drawer.Navigator screenOptions={{
+    headerShown: false,
+  }}
+    drawerContent={(props) => <Profile />}
+  >
+    <Drawer.Screen name="Dashboard" component={Dashboard} />
+    <Drawer.Screen name="Profile" component={Profile} />
+  </Drawer.Navigator>
+);
 
 const AppRoutes = () => (
   <AppStack.Navigator
@@ -18,12 +30,11 @@ const AppRoutes = () => (
       headerShown: false,
     }}
   >
-    <Drawer.Navigator>
-      <Drawer.Screen name="Profile" component={Profile} />
-    </Drawer.Navigator>
-
-    <AppStack.Screen name="Dashboard" component={Dashboard} />
-    <AppStack.Screen name="Profile" component={Profile} />
+    {/* <AppStack.Screen name="Dashboard" component={Dashboard} /> */}
+    <AppStack.Screen
+      name="DrawerHome"
+      component={DrawerHome}
+    />
     <AppStack.Screen name="UserData" component={UserData} />
     <AppStack.Screen name="CoOwners" component={CoOwners} />
     <AppStack.Screen name="CoOwnersRegister" component={CoOwnersRegister} />
