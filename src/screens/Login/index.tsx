@@ -10,6 +10,7 @@ import { hideLoading, showLoading } from '../../redux/actions/AppActions';
 import { login } from '../../redux/actions/LoginActions';
 import { RootState } from '../../redux/reducers/RootReducer';
 import { Load } from '../../components/Load';
+import { noMask } from "../../utils/masks";
 
 export default function Login() {
   const [modalVisible, setModalVisible] = useState(false);
@@ -57,6 +58,7 @@ export default function Login() {
               <Text style={styles.title}>Esqueci minha senha</Text>
               <Text style={styles.subtitle}>Informe seu usuário que enviaremos um link para recuperar sua senha em seu email.</Text>
               <CustomInputText
+                mask={noMask}
                 errors={errorsModal}
                 control={controlModal}
                 name="username"
@@ -66,7 +68,7 @@ export default function Login() {
                   required: 'Campo obrigatório.',
                   minLength: {
                     value: 1,
-                    message: 'Usuário deve ter pelo menos 1 caractere'
+                    message: 'Usuário deve ter pelo menos 1 caractere.'
                   },
                   // pattern: {
                   //   value: /[A-Za-z]{3}/,
@@ -117,6 +119,7 @@ export default function Login() {
           placeholder='senha'
           keyboardType='numeric'
           icon
+          mask={noMask}
           rules={{
             required: 'Campo obrigatório.',
             minLength: {

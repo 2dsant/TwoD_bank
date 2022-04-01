@@ -1,54 +1,101 @@
-import React, { useState } from 'react';
-import { Text, TextInput, View } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { Text, View } from 'react-native';
 import { useSelector } from 'react-redux';
 import { YellowButton } from '../../components/YellowButton';
 import { RootState } from '../../redux/reducers/RootReducer';
 import { styles } from './style';
-import { TextInputMask } from 'react-native-masked-text'
+import { useForm } from 'react-hook-form';
+import { CustomInputText } from '../../components/CustomInputText';
+import { maskDate, maskPhone } from '../../utils/masks';
+import { ScrollView } from 'react-native-gesture-handler';
+import { useNavigation } from '@react-navigation/native';
 
 
 export default function UserData() {
   const { user } = useSelector((state: RootState) => state.loginReducer);
-  const [phone, setPhone] = useState(user.telephone);
-  const [name, setName] = useState(user.name);
-  const [email, setEmail] = useState(user.email);
-  const [birthday, setBirthday] = useState(user.birthday);
-  const [description, setDescription] = useState(user.description);
+  const navigation = useNavigation<any>();
+
+  const { control, handleSubmit, formState: { errors } } = useForm({
+    defaultValues: {
+      name: `${user.name}`,
+      email: `${user.email}`,
+      telephone: maskPhone(user.telephone),
+      birthday: maskDate(user.birthday),
+      description: `${user.description}`
+    }
+  });
+
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <Text style={styles.title}>Meus Dados</Text>
 
-      <TextInput style={styles.input} placeholder="nome" value={name} onChangeText={setName} />
-      <TextInput style={styles.input} placeholder="email" value={email} onChangeText={setEmail} />
-      <TextInputMask
-        style={styles.input}
-        type={'cel-phone'}
-        keyboardType="phone-pad"
-        maxLength={1555}
-        options={{
-          maskType: 'BRL',
-          withDDD: true,
-          dddMask: '(99) '
+      <CustomInputText
+        errors={errors}
+        control={control}
+        name="name"
+        placeholder='nome completo'
+        rules={{
+          required: 'Campo obrigatório.'
         }}
-        value={phone}
-        onChangeText={setPhone}
-      />
-      <TextInputMask
-        style={styles.input}
-        type={'datetime'}
-        options={{
-          format: 'DD/MM/YYYY'
-        }}
-        value={birthday}
-        onChangeText={setBirthday}
+        customStyle={styles.input}
       />
 
-      <TextInput style={styles.textInput} placeholder="description" value={description} onChangeText={setDescription} />
+      <CustomInputText
+        errors={errors}
+        control={control}
+        name="email"
+        placeholder='email'
+        keyboardType="email-address"
+        rules={{
+          required: 'Campo obrigatório.'
+        }}
+        customStyle={styles.input}
+      />
+
+      <CustomInputText
+        errors={errors}
+        control={control}
+        name="telephone"
+        placeholder='(99)99999-9999)'
+        keyboardType='phone-pad'
+        mask={maskPhone}
+        rules={{
+          required: 'Campo obrigatório.'
+
+        }}
+        customStyle={styles.input}
+      />
+
+      <CustomInputText
+        errors={errors}
+        control={control}
+        name="birthday"
+        placeholder='DD-MM-YYYY'
+        keyboardType='numeric'
+        mask={maskDate}
+        rules={{
+          required: 'Campo obrigatório.'
+        }}
+        customStyle={styles.input}
+      />
+
+      <CustomInputText
+        errors={errors}
+        control={control}
+        numberOfLines={5}
+        name="description"
+        placeholder='descrição'
+        multiline
+        rules={{
+          required: 'Campo obrigatório.'
+        }}
+        customStyle={styles.textInput}
+      />
 
       <View style={styles.containerButton}>
-        <YellowButton title="Salvar" />
+        <YellowButton title="Salvar" onPress={handleSubmit(() => navigation.navigate('ErrorView'))} />
       </View>
-    </View>
+    </ScrollView>
   )
 }
