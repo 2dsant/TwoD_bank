@@ -21,6 +21,10 @@ export const styles = StyleSheet.create({
     alignItems: "flex-start",
     marginBottom: 27,
   },
+  popOver: {
+    alignItems: "center",
+    justifyContent: "center"
+  },
   headerMessage: {
     flexDirection: "row",
     marginBottom: 19
