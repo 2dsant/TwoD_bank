@@ -11,17 +11,29 @@ import { ListDivider } from "../../components/ListDivider";
 import { BankServices } from "../../components/BankServices";
 import { Background } from "../../components/Background";
 import CardPng from '../../assets/card.png';
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/reducers/RootReducer";
+import { hideLoading, showLoading } from "../../redux/actions/AppActions";
+import { Load } from "../../components/Load";
+import { Popable, usePopable } from 'react-native-popable';
+import PopOverContent from "../../components/PopOverContent";
 
 export default function Dashboard() {
   const navigation = useNavigation<any>();
   const [option, setOption] = useState('');
   const [showAmount, setShowAmount] = useState(true);
   const { user } = useSelector((state: RootState) => state.loginReducer);
+  const dispatch = useDispatch();
+  const { loading } = useSelector((state: RootState) => state.appReducer);
+  const [ref, { show, hide }] = usePopable();
 
   function handleOptionSelect(optionId: string) {
     optionId === option ? setOption('') : setOption(optionId);
+  }
+
+
+  if (loading) {
+    return <Load />
   }
 
   return (
@@ -38,14 +50,15 @@ export default function Dashboard() {
               onPress={() => navigation.openDrawer()}
             />
             <View style={styles.accountIcons}>
-              <Icon
-                name='person-circle-outline'
-                type='ionicon'
-                size={31}
-                color={theme.colors.primary}
-                tvParallaxProperties={undefined}
-                onPress={() => navigation.navigate('ErrorView')}
-              />
+              <Popable caret={false} position="right" content={<PopOverContent />}>
+                <Icon
+                  name='person-circle-outline'
+                  type='ionicon'
+                  size={31}
+                  color={theme.colors.primary}
+                  tvParallaxProperties={undefined}
+                />
+              </Popable>
               {
                 showAmount ?
                   <Icon
@@ -90,7 +103,7 @@ export default function Dashboard() {
           />
 
           <View style={styles.button}>
-            <YellowButton title="Meu cartão" icon={CardPng} onPress={() => navigation.openDrawer()} />
+            <YellowButton title="Meu cartão" icon={CardPng} onPress={() => navigation.navigate('ErrorView')} />
           </View>
 
           {
