@@ -8,7 +8,8 @@ export const styles = StyleSheet.create({
     justifyContent: "flex-start",
     alignItems: "center",
     backgroundColor: theme.colors.primary,
-    paddingHorizontal: 10
+    paddingHorizontal: 10,
+    borderRadius: 8
   },
   icon: {
     width: '10%',
@@ -28,6 +29,6 @@ export const styles = StyleSheet.create({
     color: theme.colors.quaternary
   },
   marginB: {
-    marginBottom: 20,
+    marginBottom: 5,
   }
 })

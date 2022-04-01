@@ -6,7 +6,6 @@ export const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: theme.colors.primary,
     padding: 20,
-    alignItems: "center"
   },
   title: {
     fontFamily: theme.fonts.interSemiBold,
@@ -38,10 +37,11 @@ export const styles = StyleSheet.create({
     borderColor: theme.colors.secondary,
     paddingHorizontal: 16,
     paddingTop: 16,
-    textAlignVertical: 'top'
+    textAlignVertical: 'top',
   },
   containerButton: {
     width: '100%',
-    marginTop: 20
+    marginTop: 30,
+    marginBottom: 20
   }
 })
