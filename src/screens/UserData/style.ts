@@ -43,5 +43,16 @@ export const styles = StyleSheet.create({
     width: '100%',
     marginTop: 30,
     marginBottom: 20
+  },
+  inputCep: {
+    width: '70%'
+  },
+  cepContainer: {
+    flexDirection: "row",
+
+  },
+  buttonCep: {
+    width: '10%',
+    height: 100
   }
 })

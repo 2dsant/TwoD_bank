@@ -4,7 +4,6 @@ import { styles } from './style';
 import { useNavigation } from '@react-navigation/native';
 import { WhiteButton } from '../../components/WhiteButton';
 import { BlackButton } from '../../components/BlackButton';
-import Login from '../Login';
 import LogoPng from '../../assets/logo.png';
 
 export default function SignIn() {

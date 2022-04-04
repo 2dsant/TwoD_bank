@@ -6,6 +6,14 @@ export const users = [
     account: {
       amount: 2000,
     },
+    address: {
+      cep: 80000000,
+      street: 'Rua são pedro',
+      number: 2500,
+      neighborhood: 'Portão',
+      city: 'Curitiba',
+      uf: 'PR'
+    },
     cpf: '00000000000',
     birthday: '01/01/2000',
     telephone: '41988888888',
@@ -17,6 +25,14 @@ export const users = [
     password: '987654321',
     account: {
       amount: 1000
+    },
+    address: {
+      cep: 80000000,
+      street: 'Rua são pedro',
+      number: 2500,
+      neighborhood: 'Portão',
+      city: 'Curitiba',
+      uf: 'PR'
     },
     cpf: '11111111111',
     birthday: '02/02/1998',
