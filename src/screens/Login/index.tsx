@@ -7,10 +7,10 @@ import { useForm } from 'react-hook-form';
 import LogoPng from '../../assets/logo.png';
 import { useDispatch, useSelector } from "react-redux";
 import { hideLoading, showLoading } from '../../redux/actions/AppActions';
-import { login } from '../../redux/actions/LoginActions';
 import { RootState } from '../../redux/reducers/RootReducer';
 import { Load } from '../../components/Load';
 import { noMask } from "../../utils/masks";
+import { getUser } from '../../redux/thunks/user';
 
 export default function Login() {
   const [modalVisible, setModalVisible] = useState(false);
@@ -23,9 +23,7 @@ export default function Login() {
     dispatch(showLoading())
 
     setTimeout(() => {
-      const user = dispatch(login(value.username, value.password));
-      if (!user)
-        Alert.alert('Verique os dados de login.')
+      dispatch(getUser(value.username, value.password));
       dispatch(hideLoading())
     }, 2000);
   }

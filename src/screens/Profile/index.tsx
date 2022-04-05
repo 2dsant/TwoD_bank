@@ -9,7 +9,7 @@ import { ProfileServices } from "../../components/ProfileServices";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/reducers/RootReducer";
 import { useNavigation } from "@react-navigation/native";
-import { logout } from '../../redux/actions/LoginActions';
+import { login_do_logout } from '../../redux/actions/LoginActions';
 import { Background } from "../../components/Background";
 
 export default function Profile() {
@@ -23,7 +23,7 @@ export default function Profile() {
   }
 
   const handleExit = () => {
-    dispatch(logout());
+    dispatch(login_do_logout());
   }
 
   return (

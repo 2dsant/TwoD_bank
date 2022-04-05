@@ -23,14 +23,11 @@ export default function Dashboard() {
   const [option, setOption] = useState('');
   const [showAmount, setShowAmount] = useState(true);
   const { user } = useSelector((state: RootState) => state.loginReducer);
-  const dispatch = useDispatch();
   const { loading } = useSelector((state: RootState) => state.appReducer);
-  const [ref, { show, hide }] = usePopable();
 
   function handleOptionSelect(optionId: string) {
     optionId === option ? setOption('') : setOption(optionId);
   }
-
 
   if (loading) {
     return <Load />
