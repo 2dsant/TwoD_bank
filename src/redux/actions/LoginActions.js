@@ -1,14 +1,16 @@
-import { Types } from './types'
-import users from '../../database/users';
+import { Types } from './types';
+import { apiUser } from '../services/User/apiUser';
 
-export const login = (username, password) => {
+
+export const login_do_login = (user) => {
+  console.log('login_do_login', user)
   return {
     type: Types.LOGIN_DO_LOGIN,
-    user: users.find(item => item.email === username && item.password === password)
+    user: user
   }
 }
 
-export const logout = () => {
+export const login_do_logout = () => {
   return {
     type: Types.LOGOUT,
     user: {}

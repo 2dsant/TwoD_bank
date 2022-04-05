@@ -15,7 +15,7 @@ export const loginReducer = (state = INITIAL_STATE, action) => {
     }
   }
 
-  if (action.type === Types.LOGOUT) {
+  if (action.type === Types.LOGOUT_DO_LOGIN) {
     return {
       ...state,
       user: action.user,
