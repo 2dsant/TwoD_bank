@@ -8,7 +8,6 @@ import UserData from "../screens/UserData";
 
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createDrawerNavigator } from "@react-navigation/drawer";
-import { theme } from "../global/styles/theme";
 
 const AppStack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();

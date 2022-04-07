@@ -42,5 +42,25 @@
       "telephone": "41999999999",
       "description": "Busco melhores os investimentos."
     }
+  ],
+  "CoOwners": [
+    {
+      "id": 1,
+      "name": "Monica da Silva",
+      "cpf": "22222222222",
+      "birthday": "03/05/1997",
+      "cellphone": "41985554444",
+      "kinship": "Conjuge",
+      "ownerId": 2
+    },
+    {
+      "id": 1,
+      "name": "Carlos Almeida",
+      "cpf": "22222222222",
+      "birthday": "02/04/1999",
+      "cellphone": "41925458575",
+      "kinship": "Conjuge",
+      "ownerId": 2
+    }
   ]
 }

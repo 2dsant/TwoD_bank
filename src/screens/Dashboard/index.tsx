@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ScrollView, View, Text } from "react-native";
 import { styles } from "./styles";
 import { useNavigation } from "@react-navigation/native";
@@ -13,21 +13,31 @@ import { Background } from "../../components/Background";
 import CardPng from '../../assets/card.png';
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/reducers/RootReducer";
-import { hideLoading, showLoading } from "../../redux/actions/AppActions";
 import { Load } from "../../components/Load";
-import { Popable, usePopable } from 'react-native-popable';
+import { Popable } from 'react-native-popable';
 import PopOverContent from "../../components/PopOverContent";
+import { getUserDataThunk } from '../../redux/thunks/user';
+import { hideLoading, showLoading } from "../../redux/actions/AppActions";
+
 
 export default function Dashboard() {
   const navigation = useNavigation<any>();
+  const dispatch = useDispatch();
   const [option, setOption] = useState('');
   const [showAmount, setShowAmount] = useState(true);
-  const { user } = useSelector((state: RootState) => state.loginReducer);
   const { loading } = useSelector((state: RootState) => state.appReducer);
+  const { data } = useSelector((state: RootState) => state.userDataReducer);
 
   function handleOptionSelect(optionId: string) {
     optionId === option ? setOption('') : setOption(optionId);
   }
+
+
+  useEffect(() => {
+    dispatch(showLoading())
+    dispatch(getUserDataThunk())
+    dispatch(hideLoading())
+  }, [])
 
   if (loading) {
     return <Load />
@@ -78,7 +88,7 @@ export default function Dashboard() {
           </View>
           <View style={styles.headerMessage}>
             <Text style={styles.title}>Olá, </Text>
-            <Text style={styles.name}>{user.name}</Text>
+            <Text style={styles.name}>{data.nome}</Text>
           </View>
         </View>
 
@@ -90,7 +100,7 @@ export default function Dashboard() {
                 showAmount ?
                   <View style={styles.blackout}></View>
                   :
-                  <Text style={styles.amount}>R$ {user.account.amount}.00</Text>
+                  <Text style={styles.amount}>{data.contas[0].saldo.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</Text>
               }
             </View>
           </View>

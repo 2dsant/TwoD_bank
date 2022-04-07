@@ -10,7 +10,7 @@ import { hideLoading, showLoading } from '../../redux/actions/AppActions';
 import { RootState } from '../../redux/reducers/RootReducer';
 import { Load } from '../../components/Load';
 import { noMask } from "../../utils/masks";
-import { getUser } from '../../redux/thunks/user';
+import { getUserThunk } from '../../redux/thunks/user';
 
 export default function Login() {
   const [modalVisible, setModalVisible] = useState(false);
@@ -18,12 +18,12 @@ export default function Login() {
   const { control: controlModal, handleSubmit: handleSubmitModal, formState: { errors: errorsModal } } = useForm();
   const dispatch = useDispatch();
   const { loading } = useSelector((state: RootState) => state.appReducer);
+  const { errorsLogin } = useSelector((state: RootState) => state.loginReducer);
 
   const onLoginPressed = (value: any) => {
     dispatch(showLoading())
-
     setTimeout(() => {
-      dispatch(getUser(value.username, value.password));
+      dispatch(getUserThunk(value.username, value.password));
       dispatch(hideLoading())
     }, 2000);
   }
@@ -68,13 +68,13 @@ export default function Login() {
                     value: 1,
                     message: 'Usuário deve ter pelo menos 1 caractere.'
                   },
-                  // pattern: {
-                  //   value: /[A-Za-z]{3}/,
-                  //   message: 'É permitido apenas letras e números.'
-                  // }
+                  pattern: {
+                    value: /^[+-]?[a-zA-Z0-9]+([,.][0-9]+)?$/,
+                    message: 'É permitido apenas letras e números.'
+                  }
                 }}
               />
-              <BlackButton title='Confirmar' onPress={handleSubmitModal(onSendEmailPress)} />
+              <BlackButton title='Confirmar' disabled={(errorsModal.password || errorsModal.username)} onPress={handleSubmitModal(onSendEmailPress)} />
             </ScrollView>
           </KeyboardAvoidingView>
         </ScrollView>
@@ -104,10 +104,10 @@ export default function Login() {
               value: 1,
               message: 'Usuário deve ter pelo menos 1 caractere'
             },
-            // pattern: {
-            //   value: /[A-Za-z]{3}/,
-            //   message: 'É permitido apenas letras e números.'
-            // }
+            pattern: {
+              value: /^[+-]?[a-zA-Z0-9]+([,.][0-9]+)?$/,
+              message: 'É permitido apenas letras e números.'
+            }
           }}
         />
         <CustomInputText
@@ -128,8 +128,12 @@ export default function Login() {
         />
       </View>
 
+      <View>
+        {errorsLogin?.map((item: string) => <Text key={item}>{item}</Text>)}
+      </View>
+
       <View style={styles.footer}>
-        <BlackButton onPress={handleSubmit(onLoginPressed)} title='Entrar' />
+        <BlackButton disabled={(errors.password || errors.username)} onPress={handleSubmit(onLoginPressed)} title='Entrar' />
         <Pressable
           onPress={() => setModalVisible(true)}>
           <Text>
