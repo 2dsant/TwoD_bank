@@ -3,7 +3,7 @@ import { Modal, Text, TouchableOpacity, View } from "react-native"
 import { styles } from "./styles";
 import { useNavigation } from "@react-navigation/native";
 import { useDispatch } from "react-redux";
-import { logout } from '../../redux/actions/LoginActions';
+import { login_do_logout } from '../../redux/actions/LoginActions';
 import { hideLoading, showLoading } from "../../redux/actions/AppActions";
 
 export default function PopOverContent() {
@@ -24,7 +24,7 @@ export default function PopOverContent() {
   }
 
   const handleExit = () => {
-    dispatch(logout());
+    dispatch(login_do_logout());
   }
 
   return (

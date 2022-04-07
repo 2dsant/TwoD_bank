@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, ScrollView, Modal, TouchableOpacity, KeyboardAvoidingView } from "react-native";
+import { View, Text, ScrollView, Modal, TouchableOpacity } from "react-native";
 import { styles } from "./styles";
 import { Icon } from "react-native-elements";
 import { theme } from "../../global/styles/theme";
@@ -57,7 +57,7 @@ export default function Profile() {
               color={theme.colors.primary}
               tvParallaxProperties={undefined}
             />
-            <Text style={styles.name}> {user.name}</Text>
+            <Text style={styles.name}> {user.nome}</Text>
           </View>
 
           <View style={styles.accountDetails}>

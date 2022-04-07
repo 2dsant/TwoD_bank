@@ -4,6 +4,7 @@ const INITIAL_STATE = {
   user: {},
   userSaved: false,
   forgotPass: false,
+  errorsLogin: []
 }
 
 export const loginReducer = (state = INITIAL_STATE, action) => {
@@ -12,6 +13,7 @@ export const loginReducer = (state = INITIAL_STATE, action) => {
       ...state,
       user: action.user,
       userSaved: true,
+      errorsLogin: action.errors
     }
   }
 
@@ -20,6 +22,7 @@ export const loginReducer = (state = INITIAL_STATE, action) => {
       ...state,
       user: action.user,
       userSaved: false,
+      errorsLogin: []
     }
   }
 

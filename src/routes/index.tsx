@@ -19,7 +19,7 @@ const Routes = ({ user }: any) => {
       {
         <NavigationContainer theme={MyTheme}>
           {
-            !user?.name ? <AuthRoutes /> : <AppRoutes />
+            !user?.username ? <AuthRoutes /> : <AppRoutes />
           }
         </NavigationContainer>
       }
