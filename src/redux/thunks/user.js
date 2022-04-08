@@ -7,7 +7,7 @@ const getUserThunk = (username, password) => (dispatch) => {
     username: username,
     senha: password
   }).then(({ data }) => {
-    if (data) {
+    if (!data?.error) {
       const user = {
         username,
         password
@@ -23,11 +23,12 @@ const getUserThunk = (username, password) => (dispatch) => {
 
 const getUserDataThunk = () => (dispatch) => {
   api.get('/dados-conta').then(({ data }) => {
-    console.log(data.data)
     if (!(data.error || data.hasError)) {
       dispatch(get_user_data(data.data))
     }
-  }).catch(e => console.log(e))
+  }).catch((error) => {
+    console.log(error.response.request._response)
+  });
 }
 
 export { getUserThunk, getUserDataThunk }

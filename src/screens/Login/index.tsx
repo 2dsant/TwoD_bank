@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { hideLoading, showLoading } from '../../redux/actions/AppActions';
 import { RootState } from '../../redux/reducers/RootReducer';
 import { Load } from '../../components/Load';
-import { noMask } from "../../utils/masks";
+import { noMask } from '../../utils/masks';
 import { getUserThunk } from '../../redux/thunks/user';
 
 export default function Login() {

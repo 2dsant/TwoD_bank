@@ -14,6 +14,13 @@ export function maskCpf(value: string) {
   return value.substring(0, 14)
 }
 
+export function maskCpfToSave(value: string) {
+  value = value.replace('.', '')
+  value = value.replace('.', '')
+  value = value.replace('-', '')
+  return value;
+}
+
 export function maskCep(value: string) {
   value = value.replace(/\D/g, ""); // 1239856
   value = value.replace(/^(\d{5})(\d)/, "$1-$2");
@@ -21,6 +28,7 @@ export function maskCep(value: string) {
 }
 
 export function maskDate(value: string) {
+  console.log(value)
   const arr = value.split('-');
   const newValue = `${arr[2]}/${arr[1]}/${arr[0]}`;
   let formattedValue;
@@ -28,6 +36,29 @@ export function maskDate(value: string) {
   formattedValue = newValue.replace(/\D/g, ""); // 1239856
   formattedValue = newValue.replace(/(\d{2})(\d)/, "$1/$2")
   formattedValue = newValue.replace(/(\d{2})(\d)/, "$1/$2")
+  formattedValue = newValue.replace(/(\d{4})(\d)/, "$1")
+
+  return formattedValue.substring(0, 10)
+}
+
+export function maskDateCoOwner(value: string) {
+  value = value.replace(/\D/g, ""); // 1239856
+  value = value.replace(/(\d{2})(\d)/, "$1/$2")
+  value = value.replace(/(\d{2})(\d)/, "$1/$2")
+  value = value.replace(/(\d{4})(\d)/, "$1")
+
+  return value.substring(0, 10)
+}
+
+export function maskDateToSave(value: string) {
+  console.log(value)
+  const arr = value.split('/');
+  const newValue = `${arr[2]}/${arr[1]}/${arr[0]}`;
+  let formattedValue;
+
+  formattedValue = newValue.replace(/\D/g, ""); // 1239856
+  formattedValue = newValue.replace(/(\d{2})(\d)/, "$1-$2")
+  formattedValue = newValue.replace(/(\d{2})(\d)/, "$1-$2")
   formattedValue = newValue.replace(/(\d{4})(\d)/, "$1")
 
   return formattedValue.substring(0, 10)

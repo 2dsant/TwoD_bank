@@ -16,7 +16,7 @@ import { RootState } from "../../redux/reducers/RootReducer";
 import { Load } from "../../components/Load";
 import { Popable } from 'react-native-popable';
 import PopOverContent from "../../components/PopOverContent";
-import { getUserDataThunk } from '../../redux/thunks/user';
+import { getUserDataThunk } from "../../redux/thunks/user";
 import { hideLoading, showLoading } from "../../redux/actions/AppActions";
 
 
