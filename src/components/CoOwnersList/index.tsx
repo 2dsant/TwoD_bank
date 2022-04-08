@@ -4,7 +4,12 @@ import { styles } from "./styles";
 import { ListDivider } from "../../components/ListDivider";
 import { DeleteButton } from "../DeleteButton";
 
-export function CoOwnersList() {
+type Props = {
+  name: string,
+  cellphone: string
+}
+
+export function CoOwnersList({ name, cellphone }: Props) {
   return (
     <TouchableOpacity
       style={styles.container}
@@ -12,8 +17,8 @@ export function CoOwnersList() {
     >
       <View style={styles.content}>
         <View>
-          <Text style={styles.title}>Maria antonieta da silva</Text>
-          <Text style={styles.subtitle}>Conjuge</Text>
+          <Text style={styles.title}>{name}</Text>
+          <Text style={styles.subtitle}>{cellphone}</Text>
         </View>
         <DeleteButton />
       </View>
