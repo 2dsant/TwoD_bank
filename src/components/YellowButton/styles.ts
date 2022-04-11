@@ -1,5 +1,4 @@
 import { StyleSheet } from "react-native";
-import { color } from "react-native-elements/dist/helpers";
 import { theme } from "../../global/styles/theme";
 
 export const styles = StyleSheet.create({
@@ -10,7 +9,8 @@ export const styles = StyleSheet.create({
     borderRadius: 8,
     alignItems: "center",
     justifyContent: "center",
-    flexDirection: "row"
+    flexDirection: "row",
+    textAlign: "center"
   },
   icon: {
     maxWidth: 20,
@@ -20,6 +20,7 @@ export const styles = StyleSheet.create({
   },
   title: {
     color: theme.colors.primary,
-    fontFamily: theme.fonts.interSemiBold
+    fontFamily: theme.fonts.interSemiBold,
+    alignSelf: "center"
   }
 })

@@ -17,7 +17,6 @@ const getUserThunk = (username, password) => (dispatch) => {
     }
   }).catch((error) => {
     dispatch(login_do_login(error.response.request._response))
-    dispatch(login_do_login(error))
   });
 }
 

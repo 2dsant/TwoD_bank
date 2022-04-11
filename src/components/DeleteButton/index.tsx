@@ -1,5 +1,5 @@
 import React from "react";
-import { TouchableOpacity, TouchableOpacityProps, View } from 'react-native';
+import { TouchableOpacity, TouchableOpacityProps } from 'react-native';
 import { Icon } from "react-native-elements";
 import { theme } from "../../global/styles/theme";
 
