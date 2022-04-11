@@ -27,7 +27,6 @@ export default function Dashboard() {
   const [showAmount, setShowAmount] = useState(true);
   const { loading } = useSelector((state: RootState) => state.appReducer);
   const { data } = useSelector((state: RootState) => state.userDataReducer);
-
   function handleOptionSelect(optionId: string) {
     optionId === option ? setOption('') : setOption(optionId);
   }
@@ -94,13 +93,13 @@ export default function Dashboard() {
         <View style={styles.content}>
           <View>
             <Text style={styles.titleAccount}>Conta</Text>
-            <Text style={styles.status}>Situação: {data.contas[0].status}</Text>
+            {/* <Text style={styles.status}>Situação: {data?.contas[0].status}</Text> */}
             <View style={styles.containerAmount}>
               {
                 showAmount ?
                   <View style={styles.blackout}></View>
                   :
-                  <Text style={data.contas[0].saldo > 0 ? styles.positiveAmount : styles.negativeAmount}>{data.contas[0].saldo.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</Text>
+                  <Text style={data?.contas[0].saldo > 0 ? styles.positiveAmount : styles.negativeAmount}>{data?.contas[0].saldo.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</Text>
               }
             </View>
           </View>
