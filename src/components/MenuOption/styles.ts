@@ -1,6 +1,5 @@
 import { StyleSheet } from "react-native";
 import { theme } from "../../global/styles/theme";
-import { Background } from "../Background";
 
 export const styles = StyleSheet.create({
   container: {

@@ -32,7 +32,6 @@ export default function Dashboard() {
     optionId === option ? setOption('') : setOption(optionId);
   }
 
-
   useEffect(() => {
     dispatch(showLoading())
     dispatch(getUserDataThunk())
@@ -95,12 +94,13 @@ export default function Dashboard() {
         <View style={styles.content}>
           <View>
             <Text style={styles.titleAccount}>Conta</Text>
+            <Text style={styles.status}>Situação: {data.contas[0].status}</Text>
             <View style={styles.containerAmount}>
               {
                 showAmount ?
                   <View style={styles.blackout}></View>
                   :
-                  <Text style={styles.amount}>{data.contas[0].saldo.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</Text>
+                  <Text style={data.contas[0].saldo > 0 ? styles.positiveAmount : styles.negativeAmount}>{data.contas[0].saldo.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</Text>
               }
             </View>
           </View>
@@ -110,7 +110,7 @@ export default function Dashboard() {
           />
 
           <View style={styles.button}>
-            <YellowButton title="Meu cartão" icon={CardPng} onPress={() => navigation.navigate('ErrorView')} />
+            <YellowButton title="Meu cartão" icon={CardPng} onPress={() => navigation.navigate('CardView')} />
           </View>
 
           {

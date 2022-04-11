@@ -21,7 +21,6 @@ export default function CoOwnersRegister() {
       celular: value.telephone,
       descricao: value.description
     }
-    console.log(data)
     api.post('/co-titular', data).then(({ data }) => {
       navigation.navigate('CoOwners')
     }).catch((error) => {

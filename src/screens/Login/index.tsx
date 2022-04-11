@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, Image, KeyboardAvoidingView, Pressable, Modal, ScrollView, Alert, ToastAndroid } from 'react-native';
+import { View, Text, Image, KeyboardAvoidingView, Pressable, Modal, ScrollView, ToastAndroid } from 'react-native';
 import { styles } from './styles';
 import { BlackButton } from '../../components/BlackButton';
 import { CustomInputText } from '../../components/CustomInputText';
@@ -18,7 +18,7 @@ export default function Login() {
   const { control: controlModal, handleSubmit: handleSubmitModal, formState: { errors: errorsModal } } = useForm();
   const dispatch = useDispatch();
   const { loading } = useSelector((state: RootState) => state.appReducer);
-  const { errorsLogin } = useSelector((state: RootState) => state.loginReducer);
+  const { hasError, error } = useSelector((state: RootState) => state.loginReducer);
 
   const onLoginPressed = (value: any) => {
     dispatch(showLoading())
@@ -129,7 +129,9 @@ export default function Login() {
       </View>
 
       <View>
-        {errorsLogin?.map((item: string) => <Text key={item}>{item}</Text>)}
+        {
+          hasError ? <Text>{error}</Text> : false
+        }
       </View>
 
       <View style={styles.footer}>

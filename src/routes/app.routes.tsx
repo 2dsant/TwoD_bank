@@ -5,6 +5,7 @@ import CoOwnersRegister from "../screens/CoOwnersRegister";
 import ErrorView from "../screens/ErrorView";
 import Profile from "../screens/Profile";
 import UserData from "../screens/UserData";
+import CardView from "../screens/CardView";
 
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createDrawerNavigator } from "@react-navigation/drawer";
@@ -35,6 +36,7 @@ const AppRoutes = () => (
       component={DrawerHome}
     />
     <AppStack.Screen name="UserData" component={UserData} />
+    <AppStack.Screen name="CardView" component={CardView} />
     <AppStack.Screen name="CoOwners" component={CoOwners} />
     <AppStack.Screen name="CoOwnersRegister" component={CoOwnersRegister} />
     <AppStack.Screen name="ErrorView" component={ErrorView} />

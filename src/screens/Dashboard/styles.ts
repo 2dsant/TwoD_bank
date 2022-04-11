@@ -1,5 +1,4 @@
 import { StyleSheet } from "react-native";
-import { blue } from "react-native-reanimated/src/reanimated2/Colors";
 import { theme } from "../../global/styles/theme";
 
 export const styles = StyleSheet.create({
@@ -61,10 +60,18 @@ export const styles = StyleSheet.create({
     fontSize: 18,
     color: theme.colors.secondary
   },
-  amount: {
+  status: {
+    marginBottom: 20
+  },
+  positiveAmount: {
     fontFamily: theme.fonts.interSemiBold,
     fontSize: 18,
-    color: theme.colors.secondary
+    color: theme.colors.octonary
+  },
+  negativeAmount: {
+    fontFamily: theme.fonts.interSemiBold,
+    fontSize: 18,
+    color: theme.colors.quaternary
   },
   list: {
     marginBottom: 30

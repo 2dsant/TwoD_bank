@@ -5,7 +5,6 @@ const INITIAL_STATE = {
 }
 
 export const appReducer = (state = INITIAL_STATE, action) => {
-
   switch (action.type) {
     case Types.APP_SHOW_LOADING:
       return {

@@ -28,7 +28,6 @@ export function maskCep(value: string) {
 }
 
 export function maskDate(value: string) {
-  console.log(value)
   const arr = value.split('-');
   const newValue = `${arr[2]}/${arr[1]}/${arr[0]}`;
   let formattedValue;
@@ -50,8 +49,17 @@ export function maskDateCoOwner(value: string) {
   return value.substring(0, 10)
 }
 
+export function maskCreditCard(value: string) {
+  value = value.replace(/\D/g, ""); // 1239856
+  value = value.replace(/(\d{4})(\d)/, "$1 $2")
+  value = value.replace(/(\d{4})(\d)/, "$1 $2")
+  value = value.replace(/(\d{4})(\d)/, "$1 $2")
+  value = value.replace(/(\d{4})(\d)/, "$1")
+
+  return value
+}
+
 export function maskDateToSave(value: string) {
-  console.log(value)
   const arr = value.split('/');
   const newValue = `${arr[2]}/${arr[1]}/${arr[0]}`;
   let formattedValue;

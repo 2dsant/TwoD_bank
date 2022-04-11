@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, Text, TouchableOpacity, TouchableOpacityProps, View } from 'react-native'
+import { Text, TouchableOpacity, View } from 'react-native'
 import { styles } from "./styles";
 import { ListDivider } from "../../components/ListDivider";
 import { DeleteButton } from "../DeleteButton";

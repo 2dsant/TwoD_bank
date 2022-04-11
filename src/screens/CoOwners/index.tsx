@@ -26,7 +26,7 @@ export default function CoOwners() {
       <Text style={styles.title}>Meus co-titulares</Text>
       {
         coOwners.map((item: any) => (
-          <CoOwnersList name={item.nome} cellphone={item.celular} />
+          <CoOwnersList key={item.id} name={item.nome} cellphone={item.celular} />
         ))
       }
 

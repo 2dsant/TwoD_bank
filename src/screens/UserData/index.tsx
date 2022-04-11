@@ -6,7 +6,7 @@ import { RootState } from '../../redux/reducers/RootReducer';
 import { styles } from './style';
 import { useForm } from 'react-hook-form';
 import { CustomInputText } from '../../components/CustomInputText';
-import { maskDate, maskPhone, maskCep } from '../../utils/masks';
+import { maskDate, maskPhone } from '../../utils/masks';
 import { ScrollView } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
 
