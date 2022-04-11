@@ -61,15 +61,10 @@ export function maskCreditCard(value: string) {
 
 export function maskDateToSave(value: string) {
   const arr = value.split('/');
-  const newValue = `${arr[2]}/${arr[1]}/${arr[0]}`;
-  let formattedValue;
+  const newValue = `${arr[2]}-${arr[1]}-${arr[0]}`;
+  console.log(newValue)
 
-  formattedValue = newValue.replace(/\D/g, ""); // 1239856
-  formattedValue = newValue.replace(/(\d{2})(\d)/, "$1-$2")
-  formattedValue = newValue.replace(/(\d{2})(\d)/, "$1-$2")
-  formattedValue = newValue.replace(/(\d{4})(\d)/, "$1")
-
-  return formattedValue.substring(0, 10)
+  return newValue.substring(0, 10)
 }
 
 export function noMask(value: string) {
