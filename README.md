@@ -24,7 +24,8 @@ Projeto pessoal desenvolvido para aprendizado da linguagem react native.
 
  React Native
 
-
+## Api
+Os dados vieram do projeto https://github.com/Rodrigo-Valle/BankGFT, é necessário rodar essa aplicação localmente para que receba os dados.
 
 ## Protótipo
 
